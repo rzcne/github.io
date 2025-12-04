@@ -4,69 +4,165 @@ title: 首页
 ---
 
 <style>
-    /* --- 分页组件样式 (局部样式) --- */
-    .pagination-wrapper {
-        margin-top: 60px;
-        padding-top: 40px;
-        border-top: 1px solid #eee;
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        height: 460px;
+        overflow: hidden;
+        margin-bottom: 50px;
+        border-radius: 2px;
+        background: #000;
+    }
+    .carousel-track {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        font-family: -apple-system, sans-serif;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     }
-
-    .page-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 36px;
-        height: 36px;
-        padding: 0 8px;
-        border: 1px solid #e2e8f0;
-        background-color: #fff;
-        color: #4a5568;
-        font-size: 14px;
-        font-weight: 500;
-        border-radius: 4px;
-        transition: all 0.2s;
+    .carousel-slide {
+        min-width: 100%;
+        height: 100%;
+        position: relative;
     }
-
-    .page-link:hover {
-        border-color: var(--brand-primary);
-        color: var(--brand-primary);
+    .carousel-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: inherit;
         text-decoration: none;
     }
-
-    .page-link.active {
-        background-color: var(--brand-primary);
-        color: #fff;
-        border-color: var(--brand-primary);
-        cursor: default;
+    .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.9;
     }
-
-    .page-link.disabled {
-        color: #cbd5e0;
-        border-color: #edf2f7;
-        cursor: not-allowed;
-        pointer-events: none;
+    .carousel-overlay {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.1) 100%);
     }
+    .carousel-content {
+        position: absolute;
+        bottom: 60px;
+        left: 40px;
+        max-width: 800px;
+        color: white;
+        z-index: 2;
+    }
+    .carousel-tag {
+        display: inline-block;
+        background: var(--brand-primary);
+        color: white;
+        padding: 4px 12px;
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .carousel-title {
+        font-size: 36px;
+        font-family: "Songti SC", serif;
+        margin: 0 0 10px 0;
+        line-height: 1.3;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .carousel-desc {
+        font-size: 16px;
+        opacity: 0.9;
+        margin: 0;
+        display: none;
+    }
+    .carousel-dots {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 3;
+    }
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.3);
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    .dot.active {
+        background: #fff;
+        transform: scale(1.2);
+    }
+    @media (min-width: 768px) {
+        .carousel-desc { display: block; }
+    }
+    @media (max-width: 768px) {
+        .carousel-container { height: 300px; }
+        .carousel-title { font-size: 22px; }
+        .carousel-content { bottom: 40px; left: 20px; right: 20px; }
+    }
+    
+    /* 分页样式 */
+    .pagination-wrapper { margin-top: 60px; padding-top: 40px; border-top: 1px solid #eee; display: flex; justify-content: center; gap: 10px; }
+    .page-link { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 36px; padding: 0 8px; border: 1px solid #e2e8f0; border-radius: 4px; color: #4a5568; font-size: 14px; }
+    .page-link:hover { border-color: var(--brand-primary); color: var(--brand-primary); }
+    .page-link.active { background-color: var(--brand-primary); color: #fff; border-color: var(--brand-primary); }
+    .page-link.disabled { color: #cbd5e0; border-color: #edf2f7; pointer-events: none; }
 </style>
 
-<!-- 栏目头 -->
+<!-- 2. 核心逻辑区：筛选 Featured 文章 -->
+<!-- 逻辑：优先找 featured: true 的文章；如果一篇都没有，就拿最新的3篇充数 -->
+{% assign featured_posts = site.posts | where: "featured", "true" %}
+{% if featured_posts.size == 0 %}
+    {% assign featured_posts = site.posts | slice: 0, 3 %}
+    {% assign tag_text = "Latest · 最新更新" %}
+{% else %}
+    {% assign featured_posts = featured_posts | slice: 0, 3 %}
+    {% assign tag_text = "Featured · 编辑精选" %}
+{% endif %}
+
+<div class="carousel-container">
+    <div class="carousel-track" id="track">
+        
+        <!-- 循环显示筛选出来的文章 -->
+        {% for post in featured_posts %}
+        <div class="carousel-slide">
+            <a href="{{ post.url | relative_url }}" class="carousel-link">
+                <img src="{{ post.image }}" alt="{{ post.title }}">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-content">
+                    <!-- 这里显示的标签由上面的逻辑决定 -->
+                    <span class="carousel-tag">{{ tag_text }}</span>
+                    <h2 class="carousel-title">{{ post.title }}</h2>
+                    <p class="carousel-desc">{{ post.description }}</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <!-- 动态小白点 -->
+    <div class="carousel-dots" id="dots">
+        {% for post in featured_posts %}
+            <div class="dot {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}"></div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- 3. 下方的文章列表 (显示所有文章) -->
 <div class="section-header">
     <div>
         <h2 class="section-title">每日精选</h2>
     </div>
     <span style="font-size: 14px; color: #718096;">
-        <!-- 显示当前是第几页 -->
         Page {{ paginator.page }} of {{ paginator.total_pages }}
     </span>
 </div>
 
-<!-- 自动网格 -->
 <div class="grid-wrapper">
-    <!--这里是paginator.posts -->
     {% for post in paginator.posts %}
     <article class="news-card">
         <a href="{{ post.url | relative_url }}" class="card-img-wrapper">
@@ -87,20 +183,15 @@ title: 首页
     {% endfor %}
 </div>
 
-<!-- 分页导航条 -->
+<!-- 分页条 -->
 {% if paginator.total_pages > 1 %}
 <div class="pagination-wrapper">
-    
-    <!-- 上一页按钮 -->
     {% if paginator.previous_page %}
         <a href="{{ paginator.previous_page_path | relative_url }}" class="page-link">&laquo; 上一页</a>
     {% else %}
         <span class="page-link disabled">&laquo; 上一页</span>
     {% endif %}
 
-    <!-- 数字页码循环 (1, 2, 3...) -->
-    <!-- 如果页数太多，Jekyll 默认逻辑比较简单，这里使用通用逻辑显示所有页码 -->
-    <!-- 对于大量文章，通常建议只显示附近页码，但目前我们先列出所有，逻辑最稳 -->
     {% for page in (1..paginator.total_pages) %}
         {% if page == paginator.page %}
             <span class="page-link active">{{ page }}</span>
@@ -111,12 +202,61 @@ title: 首页
         {% endif %}
     {% endfor %}
 
-    <!-- 下一页按钮 -->
     {% if paginator.next_page %}
         <a href="{{ paginator.next_page_path | relative_url }}" class="page-link">下一页 &raquo;</a>
     {% else %}
         <span class="page-link disabled">下一页 &raquo;</span>
     {% endif %}
-
 </div>
 {% endif %}
+
+<!-- 4. 轮播图脚本 -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const track = document.getElementById('track');
+        const dots = document.querySelectorAll('.dot');
+        const slides = document.querySelectorAll('.carousel-slide');
+        
+        if (slides.length === 0) return;
+
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        function goToSlide(index) {
+            if (index < 0) index = totalSlides - 1;
+            if (index >= totalSlides) index = 0;
+            currentIndex = index;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            if(dots[currentIndex]) dots[currentIndex].classList.add('active');
+        }
+
+        function startSlide() {
+            slideInterval = setInterval(() => {
+                goToSlide(currentIndex + 1);
+            }, 5000);
+        }
+
+        function stopSlide() {
+            clearInterval(slideInterval);
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                const index = parseInt(e.target.getAttribute('data-index'));
+                stopSlide();
+                goToSlide(index);
+                startSlide();
+            });
+        });
+
+        const container = document.querySelector('.carousel-container');
+        if (container) {
+            container.addEventListener('mouseenter', stopSlide);
+            container.addEventListener('mouseleave', startSlide);
+        }
+
+        startSlide();
+    });
+</script>
