@@ -189,21 +189,33 @@
                     <li><a href="{{ site.baseurl }}/faq/">常见问题</a></li>
                 </ul>
             </div>
-            <div class="footer-col" id="subscribe-section">
-                <h4>订阅更新</h4>
-                <p>每周一发送精选周刊。</p>
-                <div class="subscribe-form">
-                    <input type="email" id="subscribe-email" placeholder="输入您的邮箱地址">
-                    <button id="subscribe-btn">订阅</button>
-                </div>
-                <p style="margin-top: 10px; font-size: 12px; color: #aaa;">
-                    点击订阅后，我们将为您跳转到邮件客户端
-                </p>
-            </div>
+        
+           <div class="footer-col" id="subscribe-section">
+            <h4>订阅更新</h4>
+            <p>每周一发送精选周刊。</p>
+    
+             <!-- 1. 邮箱订阅 (保留) -->
+        <div class="subscribe-form">
+          <input type="email" id="subscribe-email" placeholder="您的邮箱">
+          <button id="subscribe-btn">订阅</button>
+         </div>
+
+        <!-- 2. 分割线 -->
+        <div style="margin: 20px 0; border-top: 1px dashed #333;"></div>
+
+            <!-- 3. 公众号二维码区域 -->
+           <div style="display: flex; gap: 15px; align-items: center;">
+            <!-- 二维码图片：建议尺寸 200x200 -->
+            <img src="https://bingbook.cn/img/qrcode.png" alt="微信公众号" style="width: 80px; height: 80px; border-radius: 4px;">
+        
+           <div style="flex: 1;">
+            <p style="margin: 0; color: #fff; font-size: 14px; font-weight: 600;">关注官方公众号</p>
+            <p style="margin: 4px 0 0; font-size: 12px; color: #888; line-height: 1.4;">
+                手机扫码，获取每日深度推送与独家福利。
+            </p>
         </div>
-        <div class="copyright">
-            &copy; {{ site.time | date: "%Y" }} 冰书BingBook.cn.
-        </div>
+    </div>
+</div>
     </footer>
 
     <!-- 脚本区域 -->
