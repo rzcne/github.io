@@ -3,18 +3,71 @@ layout: default
 title: 首页
 ---
 
+<style>
+    /* --- 分页组件样式 (局部样式) --- */
+    .pagination-wrapper {
+        margin-top: 60px;
+        padding-top: 40px;
+        border-top: 1px solid #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-family: -apple-system, sans-serif;
+    }
+
+    .page-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 36px;
+        height: 36px;
+        padding: 0 8px;
+        border: 1px solid #e2e8f0;
+        background-color: #fff;
+        color: #4a5568;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 4px;
+        transition: all 0.2s;
+    }
+
+    .page-link:hover {
+        border-color: var(--brand-primary);
+        color: var(--brand-primary);
+        text-decoration: none;
+    }
+
+    .page-link.active {
+        background-color: var(--brand-primary);
+        color: #fff;
+        border-color: var(--brand-primary);
+        cursor: default;
+    }
+
+    .page-link.disabled {
+        color: #cbd5e0;
+        border-color: #edf2f7;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+</style>
+
 <!-- 栏目头 -->
 <div class="section-header">
     <div>
         <h2 class="section-title">每日精选</h2>
     </div>
-    <span style="font-size: 14px; color: #718096;">Editors' Choice · 最新更新</span>
+    <span style="font-size: 14px; color: #718096;">
+        <!-- 显示当前是第几页 -->
+        Page {{ paginator.page }} of {{ paginator.total_pages }}
+    </span>
 </div>
 
 <!-- 自动网格 -->
 <div class="grid-wrapper">
-    <!-- 循环开始：只抓取最新的4篇 -->
-    {% for post in site.posts limit:4 %}
+    <!--这里是paginator.posts -->
+    {% for post in paginator.posts %}
     <article class="news-card">
         <a href="{{ post.url | relative_url }}" class="card-img-wrapper">
             <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
@@ -27,10 +80,43 @@ title: 首页
             <p class="card-summary">{{ post.description }}</p>
             <div class="card-meta">
                 <span>{{ post.author }}</span>
-                <!-- 日期格式化 -->
                 <span>{{ post.date | date: "%Y-%m-%d" }}</span>
             </div>
         </div>
     </article>
     {% endfor %}
 </div>
+
+<!-- 分页导航条 -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination-wrapper">
+    
+    <!-- 上一页按钮 -->
+    {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}" class="page-link">&laquo; 上一页</a>
+    {% else %}
+        <span class="page-link disabled">&laquo; 上一页</span>
+    {% endif %}
+
+    <!-- 数字页码循环 (1, 2, 3...) -->
+    <!-- 如果页数太多，Jekyll 默认逻辑比较简单，这里使用通用逻辑显示所有页码 -->
+    <!-- 对于大量文章，通常建议只显示附近页码，但目前我们先列出所有，逻辑最稳 -->
+    {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+            <span class="page-link active">{{ page }}</span>
+        {% elsif page == 1 %}
+            <a href="{{ site.baseurl }}/" class="page-link">{{ page }}</a>
+        {% else %}
+            <a href="{{ site.baseurl }}/page{{ page }}/" class="page-link">{{ page }}</a>
+        {% endif %}
+    {% endfor %}
+
+    <!-- 下一页按钮 -->
+    {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}" class="page-link">下一页 &raquo;</a>
+    {% else %}
+        <span class="page-link disabled">下一页 &raquo;</span>
+    {% endif %}
+
+</div>
+{% endif %}
