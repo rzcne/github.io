@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <style>
-        /* --- 1. 设计系统 --- */
+        /* --- 1. 设计系统 (Design System) --- */
         :root {
             --brand-primary: #0056b3; 
             --brand-accent: #00a8e8;
@@ -35,49 +35,37 @@
         ul { list-style: none; padding: 0; margin: 0; }
         img { max-width: 100%; display: block; }
 
-        /* --- 2. 顶部导航 --- */
+        /* --- 2. 顶部导航 (Header) --- */
         header { background: #fff; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; height: 72px; }
         .header-inner { max-width: var(--spacing-container); margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
         
         .brand-area { display: flex; align-items: center; gap: 12px; }
-        
-        /* 新增 Logo 样式 */
-        .logo-img {
-            height: 32px;  /* 控制 Logo 高度 */
-            width: auto;   /* 宽度自动保持比例 */
-            display: block;
-        }
-
+        .logo-img { height: 32px; width: auto; display: block; } /* Logo 样式 */
         .brand-text { font-size: 22px; font-weight: 800; color: var(--text-heading); font-family: 'Georgia', serif; }
         
         .nav-links { display: none; gap: 32px; }
         .nav-links a { font-size: 15px; font-weight: 500; }
         .nav-links a:hover { color: var(--brand-primary); }
+        .nav-links a.active { color: var(--brand-primary); }
         
         .header-actions { display: flex; align-items: center; gap: 15px; }
 
-        /* 搜索框样式 */
+        /* 搜索框组件 */
         .search-container { position: relative; }
         .search-input {
             padding: 8px 12px;
-            border-radius: 4px;
-            border: 1px solid #eee;
-            background: #f8f9fa;
-            font-size: 14px;
-            width: 160px;
-            transition: all 0.2s;
+            border-radius: 4px; border: 1px solid #eee; background: #f8f9fa;
+            font-size: 14px; width: 160px; transition: all 0.2s;
         }
         .search-input:focus {
-            outline: none;
-            border-color: var(--brand-primary);
-            background: #fff;
-            width: 200px;
-            box-shadow: 0 0 0 2px rgba(0,86,179,0.1);
+            outline: none; border-color: var(--brand-primary); background: #fff;
+            width: 200px; box-shadow: 0 0 0 2px rgba(0,86,179,0.1);
         }
         #search-results {
             position: absolute; top: 100%; right: 0; width: 300px; background: #fff;
             border: 1px solid #eee; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-radius: 4px; margin-top: 8px; display: none; max-height: 400px; overflow-y: auto; z-index: 2000;
+            border-radius: 4px; margin-top: 8px; display: none; max-height: 400px;
+            overflow-y: auto; z-index: 2000;
         }
         .search-item { display: block; padding: 12px 16px; border-bottom: 1px solid #f5f5f5; }
         .search-item:last-child { border-bottom: none; }
@@ -113,34 +101,50 @@
         .card-summary { font-size: 14px; color: var(--text-body); margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; flex-grow: 1; }
         .card-meta { display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid #f0f0f0; font-size: 12px; color: var(--text-meta); }
 
-        /* --- 6. 文章内容 --- */
+        /* --- 6. 文章详情页 --- */
         .post-content { max-width: 720px; margin: 0 auto; font-size: 18px; line-height: 1.8; }
         .post-content p { margin-bottom: 24px; }
         .post-header { text-align: center; margin-bottom: 40px; }
         .post-header h1 { font-size: 36px; margin-bottom: 16px; font-family: "Songti SC", serif; }
 
-        /* --- 7. 页脚 --- */
+        /* --- 7. 页脚 (Footer) --- */
         footer { background-color: var(--bg-footer); color: #888; padding: 60px 0 30px; font-size: 14px; margin-top: auto; }
-        .footer-content { max-width: var(--spacing-container); margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; text-align: left; }
+        
+        .footer-content { 
+            max-width: var(--spacing-container); 
+            margin: 0 auto; 
+            padding: 0 24px; 
+            display: grid; 
+            /* 响应式 Grid：手机1列，平板2列，桌面4列 */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 40px; 
+            margin-bottom: 40px; 
+            text-align: left; 
+        }
+
         .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 16px; }
         .footer-col ul li { margin-bottom: 10px; }
-        .footer-col ul li a:hover { color: #fff; }
+        .footer-col ul li a:hover { color: #fff; text-decoration: underline; }
+        
+        /* 订阅表单 */
         .subscribe-form { display: flex; margin-top: 15px; border-radius: 2px; overflow: hidden; }
-        .subscribe-form input { padding: 10px 15px; border: none; width: 70%; font-size: 14px; outline: none; }
-        .subscribe-form button { width: 30%; background: var(--brand-primary); color: white; border: none; cursor: pointer; font-weight: 600; transition: background 0.3s; }
+        .subscribe-form input { padding: 10px 15px; border: none; width: 65%; font-size: 14px; outline: none; }
+        .subscribe-form button { width: 35%; background: var(--brand-primary); color: white; border: none; cursor: pointer; font-weight: 600; transition: background 0.3s; }
         .subscribe-form button:hover { background: var(--brand-accent); }
+        
         #subscribe-section { scroll-margin-top: 20px; }
+        
         .copyright { text-align: center; border-top: 1px solid #333; padding-top: 30px; margin-top: 30px; color: #555; }
     </style>
 </head>
 <body>
 
-    <!-- 头部 -->
+    <!-- 头部导航 -->
     <header>
         <div class="header-inner">
             <a href="{{ site.baseurl }}/" class="brand-area">
-                <!-- 这里 Logo 图片 -->
-                <img src="https://bingbook.cn/img/logo.png" alt="BingBook" class="logo-img">
+                <!-- Logo: 请确保 /img/logo.png 存在 -->
+                <img src="https://bingbook.cn/img/logo.png" alt="BingBook" class="logo-img" onerror="this.style.display='none'">
                 <span class="brand-text">冰书</span>
             </a>
             <nav class="nav-links">
@@ -150,27 +154,33 @@
                 <a href="{{ site.baseurl }}/books/">书评专栏</a>
             </nav>
             <div class="header-actions">
-                <!-- 搜索组件 -->
+                <!-- 搜索 -->
                 <div class="search-container">
                     <input type="text" id="search-input" class="search-input" placeholder="搜索文章...">
                     <div id="search-results"></div>
                 </div>
-                
+                <!-- 顶部订阅按钮 -->
                 <a href="#subscribe-section" class="btn-subscribe">订阅日报</a>
             </div>
         </div>
     </header>
 
+    <!-- 主体内容 -->
     <main class="main-container">
         {{ content }}
     </main>
 
+    <!-- 页脚 -->
     <footer>
         <div class="footer-content">
+            
+            <!-- 第 1 列：关于 -->
             <div class="footer-col">
                 <h4>关于冰书</h4>
                 <p style="line-height: 1.8;">冰书 (BingBook.cn) 致力于为读者提供高价值的信息筛选服务，在信息过载的时代，保持冷静与深度。</p>
             </div>
+
+            <!-- 第 2 列：导航 -->
             <div class="footer-col">
                 <h4>栏目导航</h4>
                 <ul>
@@ -180,6 +190,8 @@
                     <li><a href="{{ site.baseurl }}/podcast/">播客精选</a></li>
                 </ul>
             </div>
+
+            <!-- 第 3 列：合作 -->
             <div class="footer-col">
                 <h4>联系与合作</h4>
                 <ul>
@@ -189,38 +201,47 @@
                     <li><a href="{{ site.baseurl }}/faq/">常见问题</a></li>
                 </ul>
             </div>
-        
-           <div class="footer-col" id="subscribe-section">
-            <h4>订阅更新</h4>
-            <p>每周一发送精选周刊。</p>
-    
-             <!-- 1. 邮箱订阅 (保留) -->
-        <div class="subscribe-form">
-          <input type="email" id="subscribe-email" placeholder="您的邮箱">
-          <button id="subscribe-btn">订阅</button>
-         </div>
 
-        <!-- 2. 分割线 -->
-        <div style="margin: 20px 0; border-top: 1px dashed #333;"></div>
+            <!-- 第 4 列：订阅 & 二维码 (整合版) -->
+            <div class="footer-col" id="subscribe-section">
+                <h4>订阅更新</h4>
+                <p style="margin-bottom:10px;">每周一发送精选周刊。</p>
+                
+                <!-- 邮箱订阅 -->
+                <div class="subscribe-form">
+                    <input type="email" id="subscribe-email" placeholder="您的邮箱">
+                    <button id="subscribe-btn">订阅</button>
+                </div>
 
-            <!-- 3. 公众号二维码区域 -->
-           <div style="display: flex; gap: 15px; align-items: center;">
-            <!-- 二维码图片：建议尺寸 200x200 -->
-            <img src="https://bingbook.cn/img/qrcode.png" alt="微信公众号" style="width: 80px; height: 80px; border-radius: 4px;">
-        
-           <div style="flex: 1;">
-            <p style="margin: 0; color: #fff; font-size: 14px; font-weight: 600;">关注官方公众号</p>
-            <p style="margin: 4px 0 0; font-size: 12px; color: #888; line-height: 1.4;">
-                手机扫码，获取每日深度推送与独家福利。
-            </p>
+                <!-- 分割线 -->
+                <div style="margin: 25px 0; border-top: 1px dashed #333;"></div>
+
+                <!-- 公众号二维码区域 -->
+                <div style="display: flex; gap: 15px; align-items: flex-start;">
+                    <!-- 这里引用 /img/qrcode.png -->
+                    <!-- style 里的 background: white 是为了防止二维码在黑底上看不清 -->
+                    <img src="{{ site.baseurl }}/img/qrcode.png" alt="公众号" 
+                         style="width: 80px; height: 80px; border-radius: 4px; background: #fff; padding: 4px;"
+                         onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BingBook'"> 
+                    
+                    <div style="flex: 1;">
+                        <h5 style="color: #fff; margin: 0 0 5px 0; font-size: 14px;">关注官方公众号</h5>
+                        <p style="margin: 0; font-size: 12px; color: #888; line-height: 1.5;">
+                            扫码获取每日深度推送与独家福利。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
-</div>
+        <div class="copyright">
+            &copy; {{ site.time | date: "%Y" }} 冰书BingBook.cn.
+        </div>
     </footer>
 
-    <!-- 脚本区域 -->
+    <!-- 功能脚本 -->
     <script>
-        // 订阅功能
+        // 1. 订阅功能
         const subBtn = document.getElementById('subscribe-btn');
         const subInput = document.getElementById('subscribe-email');
         if(subBtn && subInput){
@@ -238,15 +259,16 @@
             });
         }
 
-        // 搜索功能
+        // 2. 搜索功能
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
         let postsData = [];
 
+        // 加载 search.json
         fetch('{{ site.baseurl }}/search.json')
             .then(response => response.json())
             .then(data => { postsData = data; })
-            .catch(error => console.error('Error:', error));
+            .catch(error => console.error('Error loading search:', error));
 
         searchInput.addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase().trim();
@@ -254,7 +276,10 @@
             searchResults.style.display = 'none';
             if (query.length === 0) return;
 
-            const filteredPosts = postsData.filter(post => post.title.toLowerCase().includes(query));
+            const filteredPosts = postsData.filter(post => 
+                post.title.toLowerCase().includes(query)
+            );
+            
             searchResults.style.display = 'block';
             
             if (filteredPosts.length > 0) {
@@ -270,6 +295,7 @@
             }
         });
 
+        // 点击外部关闭搜索
         document.addEventListener('click', function(e) {
             if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
                 searchResults.style.display = 'none';
