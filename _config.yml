@@ -1,7 +1,7 @@
 title: 冰书 BingBook
 description: 深度阅读精选
 baseurl: "" # 如果是用户主页(username.github.io)则留空 ""
-url: "https://bingbook.cn/github.io"
+url: "https://blog.nsone.com.cn"
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
 theme: null
@@ -10,5 +10,5 @@ theme: null
 plugins:
   - jekyll-paginate
 
-paginate: 4               # 每页显示4篇文章
+paginate: 8               # 每页显示4篇文章
 paginate_path: "/page:num/" # 分页生成的路径规则
