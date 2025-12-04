@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <style>
+        /* --- 1. 设计系统 --- */
+        :root {
+            --brand-primary: #0056b3; 
+            --brand-accent: #00a8e8;
+            --bg-body: #f8f9fa;
+            --bg-card: #ffffff;
+            --bg-footer: #1a1a1a;
+            --text-heading: #111111;
+            --text-body: #4a5568;
+            --text-meta: #718096;
+            --border-color: #e2e8f0;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            --card-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            --spacing-container: 1280px;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 { color: var(--text-heading); font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        ul { list-style: none; padding: 0; margin: 0; }
+        img { max-width: 100%; display: block; }
+
+        /* --- 2. 顶部导航 --- */
+        header { background: #fff; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; height: 72px; }
+        .header-inner { max-width: var(--spacing-container); margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+        .brand-area { display: flex; align-items: center; gap: 12px; }
+        .brand-text { font-size: 22px; font-weight: 800; color: var(--text-heading); font-family: 'Georgia', serif; }
+        
+        .nav-links { display: none; gap: 32px; }
+        .nav-links a { font-size: 15px; font-weight: 500; }
+        .nav-links a:hover { color: var(--brand-primary); }
+        
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .btn-subscribe { background-color: var(--text-heading); color: #fff; padding: 8px 20px; border-radius: 2px; font-size: 14px; font-weight: 600; cursor: pointer;}
+        .btn-subscribe:hover { background-color: var(--brand-primary); }
+        
+        @media (min-width: 768px) { .nav-links { display: flex; } }
+
+        /* --- 3. 主体容器 --- */
+        .main-container { max-width: var(--spacing-container); margin: 0 auto; padding: 60px 24px; min-height: 60vh; }
+
+        /* --- 4. 首页网格系统 --- */
+        .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; border-bottom: 2px solid var(--text-heading); padding-bottom: 12px; }
+        .section-title { font-size: 28px; font-family: "Songti SC", serif; }
+        .grid-wrapper { display: grid; gap: 24px; grid-template-columns: 1fr; }
+        @media (min-width: 640px) { .grid-wrapper { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .grid-wrapper { grid-template-columns: repeat(4, 1fr); } }
+
+        /* --- 5. 卡片样式 --- */
+        .news-card { background: var(--bg-card); border: 1px solid var(--border-color); display: flex; flex-direction: column; transition: transform 0.2s; position: relative; height: 100%; }
+        .news-card:hover { transform: translateY(-2px); box-shadow: var(--card-hover-shadow); }
+        .card-img-wrapper { width: 100%; padding-top: 56.25%; position: relative; background: #f0f0f0; overflow: hidden; }
+        .card-img-wrapper img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .news-card:hover .card-img-wrapper img { transform: scale(1.05); }
+        .card-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-category { font-size: 12px; font-weight: 700; color: var(--brand-primary); text-transform: uppercase; margin-bottom: 8px; }
+        .card-title { font-size: 18px; line-height: 1.4; margin-bottom: 12px; font-family: "Songti SC", serif; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .card-summary { font-size: 14px; color: var(--text-body); margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; flex-grow: 1; }
+        .card-meta { display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid #f0f0f0; font-size: 12px; color: var(--text-meta); }
+
+        /* --- 6. 文章详情页样式 --- */
+        .post-content { max-width: 720px; margin: 0 auto; font-size: 18px; line-height: 1.8; }
+        .post-content p { margin-bottom: 24px; }
+        .post-header { text-align: center; margin-bottom: 40px; }
+        .post-header h1 { font-size: 36px; margin-bottom: 16px; font-family: "Songti SC", serif; }
+
+        /* --- 7. 页脚 (完整复原) --- */
+        footer { background-color: var(--bg-footer); color: #888; padding: 60px 0 30px; font-size: 14px; margin-top: auto; }
+        .footer-content { 
+            max-width: var(--spacing-container); 
+            margin: 0 auto; 
+            padding: 0 24px; 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left; /* 恢复左对齐 */
+        }
+        
+        .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 16px; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a:hover { color: #fff; }
+        
+        /* 订阅表单样式 */
+        .subscribe-form { display: flex; margin-top: 15px; border-radius: 2px; overflow: hidden; }
+        .subscribe-form input { padding: 10px 15px; border: none; width: 70%; font-size: 14px; outline: none; }
+        .subscribe-form button { width: 30%; background: var(--brand-primary); color: white; border: none; cursor: pointer; font-weight: 600; transition: background 0.3s; }
+        .subscribe-form button:hover { background: var(--brand-accent); }
+        
+        #subscribe-section { scroll-margin-top: 20px; }
+        
+        .copyright { text-align: center; border-top: 1px solid #333; padding-top: 30px; margin-top: 30px; color: #555; }
+    </style>
+</head>
+<body>
+
+    <!-- 头部 -->
+    <header>
+        <div class="header-inner">
+            <a href="{{ site.baseurl }}/" class="brand-area">
+                <span class="brand-text">冰书</span>
+            </a>
+            <nav class="nav-links">
+                <a href="{{ site.baseurl }}/" class="active">首页</a>
+                <a href="#">商业洞察</a>
+                <a href="#">关于我们</a>
+            </nav>
+            <div class="header-actions">
+                <!-- 点击直接跳转到页脚订阅区 -->
+                <a href="#subscribe-section" class="btn-subscribe">订阅日报</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 动态内容 -->
+    <main class="main-container">
+        {{ content }}
+    </main>
+
+    <!-- 页脚 (恢复完整版) -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于冰书</h4>
+                <p style="line-height: 1.8;">冰书 (BingBook) 致力于为读者提供高价值的信息筛选服务，在信息过载的时代，保持冷静与深度。</p>
+            </div>
+            <div class="footer-col">
+                <h4>栏目导航</h4>
+                <ul>
+                    <li><a href="#">全球视野</a></li>
+                    <li><a href="#">深度报道</a></li>
+                    <li><a href="#">书评专栏</a></li>
+                    <li><a href="#">播客精选</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系与合作</h4>
+                <ul>
+                    <li><a href="#">内容投稿</a></li>
+                    <li><a href="#">商务合作</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </div>
+            <!-- 订阅区 -->
+            <div class="footer-col" id="subscribe-section">
+                <h4>订阅更新</h4>
+                <p>每周一发送精选周刊。</p>
+                <div class="subscribe-form">
+                    <input type="email" id="subscribe-email" placeholder="输入您的邮箱地址">
+                    <button id="subscribe-btn">订阅</button>
+                </div>
+                <p style="margin-top: 10px; font-size: 12px; color: #aaa;">
+                    点击订阅后，我们将为您跳转到邮件客户端
+                </p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; {{ site.time | date: "%Y" }} BingBook. Powered by GitHub Pages.
+        </div>
+    </footer>
+
+    <!-- JavaScript 逻辑 -->
+    <script>
+        // 订阅功能逻辑
+        const subBtn = document.getElementById('subscribe-btn');
+        const subInput = document.getElementById('subscribe-email');
+
+        if(subBtn && subInput){
+            subBtn.addEventListener('click', function() {
+                const email = subInput.value;
+                
+                if (!email) {
+                    alert('请输入您的邮箱地址');
+                    subInput.focus();
+                    return;
+                }
+                
+                // 简单的邮箱验证
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('请输入有效的邮箱地址');
+                    return;
+                }
+                
+                // 构造邮件内容
+                const subject = encodeURIComponent('申请订阅冰书');
+                const body = encodeURIComponent(`你好，我是 ${email}，希望订阅冰书每日精选。`);
+                
+                // 打开邮件客户端
+                window.location.href = `mailto:mail@bingbook.cn?subject=${subject}&body=${body}`;
+            });
+
+            // 回车键支持
+            subInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    subBtn.click();
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
