@@ -1,0 +1,9 @@
+{
+  "name": "bingbook-mailer",
+  "version": "1.0.0",
+  "description": "Auto sender for BingBook",
+  "main": "send-email.js",
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  }
+}
