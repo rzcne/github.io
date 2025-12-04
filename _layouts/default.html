@@ -148,14 +148,16 @@
                     <li><a href="#">播客精选</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
+            
+           <div class="footer-col">
                 <h4>联系与合作</h4>
-                <ul>
-                    <li><a href="#">内容投稿</a></li>
-                    <li><a href="#">商务合作</a></li>
-                    <li><a href="#">加入我们</a></li>
-                    <li><a href="#">常见问题</a></li>
-                </ul>
+                   <ul>
+                  <!-- 这里的 href 要对应上面文件里写的 permalink -->
+                     <li><a href="{{ site.baseurl }}/submission/">内容投稿</a></li>
+                     <li><a href="{{ site.baseurl }}/business/">商务合作</a></li>
+                     <li><a href="{{ site.baseurl }}/careers/">加入我们</a></li>
+                     <li><a href="{{ site.baseurl }}/faq/">常见问题</a></li>
+                 </ul>
             </div>
             <!-- 订阅区 -->
             <div class="footer-col" id="subscribe-section">
