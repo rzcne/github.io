@@ -1,6 +1,8 @@
 title: 冰书 BingBook
 description: 深度阅读精选
+# 如果你的仓库名是 bingbook，这里写 /bingbook；如果是 用户名.github.io，这里留空 ""
 baseurl: "" 
-url: "https://bingbook.cn.github.io" 
+url: "https://bingbook.cn/github.io"
 markdown: kramdown
+permalink: /:year/:month/:day/:title/
 theme: null
