@@ -21,13 +21,13 @@ const subscribers = fs.readFileSync('subscribers.txt', 'utf-8')
 // 3. 邮件内容 (你可以每次手动改这里，或者搞更高级的自动抓取)
 const mailOptions = {
     from: `"冰书 BingBook" <${process.env.EMAIL_USER}>`,
-    subject: `冰书周刊精选：${new Date().toLocaleDateString()}`,
+    subject: `冰书精选周刊：${new Date().toLocaleDateString()}`,
     html: `
         <div style="font-family: sans-serif; padding: 20px;">
-            <h2>📅 冰书周刊精选</h2>
+            <h2>📅 冰书精选周刊</h2>
             <p>感谢订阅，这是周刊的精选文章：</p>
             <hr>
-            <h3><a href="https://bingbook.cn">1. 点击查看周刊更新的4篇文章</a></h3>
+            <h3><a href="https://bingbook.cn">1. 点击查看精选周刊的4篇文章</a></h3>
             <p>请访问官网阅读完整内容。</p>
             <hr>
             <p style="font-size: 12px; color: #888;">不想收到邮件？请回复退订。</p>
@@ -39,7 +39,7 @@ const mailOptions = {
 async function sendAll() {
     console.log(`准备给 ${subscribers.length} 人发送邮件...`);
     
-    // 为了防止被封号，建议把所有人放在 Bcc (密送) 里，这样大家互看不到邮箱
+    // 为了防被封号，建议把所有人放在 Bcc (密送) 里，这样大家互看不到邮箱
     // 或者循环发送 (适合人数少)
     
     // 方案 A: 密送群发 (简单，省资源)
