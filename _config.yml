@@ -1,7 +1,7 @@
 title: 冰书 BingBook
 description: 深度阅读精选
 baseurl: "" # 如果是用户主页(username.github.io)则留空 ""
-url: "https://blog.nsone.com.cn"
+url: "https://bingbook.cn"
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
 theme: null
