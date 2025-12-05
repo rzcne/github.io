@@ -6,7 +6,7 @@ category: Global
 author: "冰书研究院"
 image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=1200"
 description: "在传统的暴力犯罪率之外，2025年的安全定义已扩展至网络防御能力、地缘政治隔离度与气候韧性。谁是新时代的诺亚方舟？"
-featured: false
+featured: true
 ---
 
 <div class="post-header">
