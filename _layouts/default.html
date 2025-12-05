@@ -147,7 +147,7 @@
                     <input type="text" id="search-input" class="search-input" placeholder="搜索文章...">
                     <div id="search-results"></div>
                 </div>
-                <a href="#subscribe-section" class="btn-subscribe">订阅日报</a>
+                <a href="#subscribe-section" class="btn-subscribe">订阅</a>
             </div>
         </div>
     </header>
@@ -196,9 +196,9 @@
 
                 <div style="display: flex; gap: 15px; align-items: flex-start;">
                     <!-- 引用二维码 -->
-                    <img src="{{ site.baseurl }}/img/qrcode.png" alt="公众号" 
+                    <img src="{{ site.baseurl }}/img/qrcode.jpg" alt="公众号" 
                          style="width: 80px; height: 80px; border-radius: 4px; background: #fff; padding: 4px;"
-                         onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BingBook'">
+                         onerror="this.src='/img/qrcode.jpg'">
                     <div style="flex: 1;">
                         <h5 style="color: #fff; margin: 0 0 5px 0; font-size: 14px;">关注官方公众号</h5>
                         <p style="margin: 0; font-size: 12px; color: #888; line-height: 1.5;">扫码获取每日深度推送与独家福利。</p>
