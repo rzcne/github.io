@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "2025全球安全指数报告：乱纪元中的五片绿洲"
-date: 2025-12-05
+date: 2025-12-04
 category: Global
 author: "冰书研究院"
 image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=1200"
