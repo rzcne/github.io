@@ -4,7 +4,7 @@ title: "普京突访新德里：印俄构建“特权战略伙伴关系”的深
 date: 2025-12-05
 category: Global
 author: "冰书时政组"
-image: "https://images.unsplash.com/photo-1596324639908-16e507746487?auto=format&fit=crop&q=80&w=1200"
+image:"https://s41.ax1x.com/2025/12/05/pZmZ7H1.png"
 description: "在西方制裁的围墙之外，莫斯科与新德里正在构建一套独立的贸易与防务逻辑。本次会谈释放了什么关键信号？"
 featured: true
 ---
