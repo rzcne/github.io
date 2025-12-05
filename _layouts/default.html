@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    
+    <!-- === Favicon 图标设置 === -->
+    <!-- 默认使用 logo.png，如果你以后有专门的 favicon.png，请在这里修改路径 -->
+    <link rel="icon" href="{{ site.baseurl }}/img/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="{{ site.baseurl }}/img/logo.png">
+
     <style>
-        /* --- 1. 设计系统 (Design System) --- */
+        /* --- 1. 全局设计系统 --- */
         :root {
             --brand-primary: #0056b3; 
             --brand-accent: #00a8e8;
@@ -16,7 +22,6 @@
             --text-body: #4a5568;
             --text-meta: #718096;
             --border-color: #e2e8f0;
-            --card-shadow: 0 1px 3px rgba(0,0,0,0.05);
             --card-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
             --spacing-container: 1280px;
         }
@@ -35,26 +40,24 @@
         ul { list-style: none; padding: 0; margin: 0; }
         img { max-width: 100%; display: block; }
 
-        /* --- 2. 顶部导航 (Header) --- */
+        /* --- 2. 顶部导航 --- */
         header { background: #fff; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; height: 72px; }
         .header-inner { max-width: var(--spacing-container); margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
         
         .brand-area { display: flex; align-items: center; gap: 12px; }
-        .logo-img { height: 32px; width: auto; display: block; } /* Logo 样式 */
+        .logo-img { height: 32px; width: auto; display: block; }
         .brand-text { font-size: 22px; font-weight: 800; color: var(--text-heading); font-family: 'Georgia', serif; }
         
         .nav-links { display: none; gap: 32px; }
         .nav-links a { font-size: 15px; font-weight: 500; }
-        .nav-links a:hover { color: var(--brand-primary); }
-        .nav-links a.active { color: var(--brand-primary); }
+        .nav-links a:hover, .nav-links a.active { color: var(--brand-primary); }
         
         .header-actions { display: flex; align-items: center; gap: 15px; }
 
-        /* 搜索框组件 */
+        /* 搜索框样式 */
         .search-container { position: relative; }
         .search-input {
-            padding: 8px 12px;
-            border-radius: 4px; border: 1px solid #eee; background: #f8f9fa;
+            padding: 8px 12px; border-radius: 4px; border: 1px solid #eee; background: #f8f9fa;
             font-size: 14px; width: 160px; transition: all 0.2s;
         }
         .search-input:focus {
@@ -79,17 +82,17 @@
         
         @media (min-width: 768px) { .nav-links { display: flex; } }
 
-        /* --- 3. 主体容器 --- */
+        /* --- 3. 主体布局 --- */
         .main-container { max-width: var(--spacing-container); margin: 0 auto; padding: 60px 24px; min-height: 60vh; }
-
-        /* --- 4. 首页网格 --- */
+        
         .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; border-bottom: 2px solid var(--text-heading); padding-bottom: 12px; }
         .section-title { font-size: 28px; font-family: "Songti SC", serif; }
+
         .grid-wrapper { display: grid; gap: 24px; grid-template-columns: 1fr; }
         @media (min-width: 640px) { .grid-wrapper { grid-template-columns: repeat(2, 1fr); } }
         @media (min-width: 1024px) { .grid-wrapper { grid-template-columns: repeat(4, 1fr); } }
 
-        /* --- 5. 卡片样式 --- */
+        /* --- 4. 通用卡片样式 --- */
         .news-card { background: var(--bg-card); border: 1px solid var(--border-color); display: flex; flex-direction: column; transition: transform 0.2s; position: relative; height: 100%; }
         .news-card:hover { transform: translateY(-2px); box-shadow: var(--card-hover-shadow); }
         .card-img-wrapper { width: 100%; padding-top: 56.25%; position: relative; background: #f0f0f0; overflow: hidden; }
@@ -101,50 +104,36 @@
         .card-summary { font-size: 14px; color: var(--text-body); margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; flex-grow: 1; }
         .card-meta { display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid #f0f0f0; font-size: 12px; color: var(--text-meta); }
 
-        /* --- 6. 文章详情页 --- */
+        /* --- 5. 文章详情页 --- */
         .post-content { max-width: 720px; margin: 0 auto; font-size: 18px; line-height: 1.8; }
         .post-content p { margin-bottom: 24px; }
         .post-header { text-align: center; margin-bottom: 40px; }
         .post-header h1 { font-size: 36px; margin-bottom: 16px; font-family: "Songti SC", serif; }
 
-        /* --- 7. 页脚 (Footer) --- */
+        /* --- 6. 页脚 (Footer) --- */
         footer { background-color: var(--bg-footer); color: #888; padding: 60px 0 30px; font-size: 14px; margin-top: auto; }
-        
-        .footer-content { 
-            max-width: var(--spacing-container); 
-            margin: 0 auto; 
-            padding: 0 24px; 
-            display: grid; 
-            /* 响应式 Grid：手机1列，平板2列，桌面4列 */
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-            gap: 40px; 
-            margin-bottom: 40px; 
-            text-align: left; 
-        }
-
+        .footer-content { max-width: var(--spacing-container); margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; text-align: left; }
         .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 16px; }
         .footer-col ul li { margin-bottom: 10px; }
-        .footer-col ul li a:hover { color: #fff; text-decoration: underline; }
+        .footer-col ul li a:hover { color: #fff; }
         
-        /* 订阅表单 */
         .subscribe-form { display: flex; margin-top: 15px; border-radius: 2px; overflow: hidden; }
         .subscribe-form input { padding: 10px 15px; border: none; width: 65%; font-size: 14px; outline: none; }
         .subscribe-form button { width: 35%; background: var(--brand-primary); color: white; border: none; cursor: pointer; font-weight: 600; transition: background 0.3s; }
         .subscribe-form button:hover { background: var(--brand-accent); }
         
         #subscribe-section { scroll-margin-top: 20px; }
-        
         .copyright { text-align: center; border-top: 1px solid #333; padding-top: 30px; margin-top: 30px; color: #555; }
     </style>
 </head>
 <body>
 
-    <!-- 头部导航 -->
+    <!-- 顶部 -->
     <header>
         <div class="header-inner">
             <a href="{{ site.baseurl }}/" class="brand-area">
-                <!-- Logo: 请确保 /img/logo.png 存在 -->
-                <img src="/img/logo.png" alt="BingBook" class="logo-img" onerror="this.style.display='none'">
+                <!-- 引用 Logo -->
+                <img src="{{ site.baseurl }}/img/logo.png" alt="BingBook" class="logo-img" onerror="this.style.display='none'">
                 <span class="brand-text">冰书</span>
             </a>
             <nav class="nav-links">
@@ -154,18 +143,16 @@
                 <a href="{{ site.baseurl }}/books/">书评专栏</a>
             </nav>
             <div class="header-actions">
-                <!-- 搜索 -->
                 <div class="search-container">
                     <input type="text" id="search-input" class="search-input" placeholder="搜索文章...">
                     <div id="search-results"></div>
                 </div>
-                <!-- 顶部订阅按钮 -->
-                <a href="#subscribe-section" class="btn-subscribe">订阅</a>
+                <a href="#subscribe-section" class="btn-subscribe">订阅日报</a>
             </div>
         </div>
     </header>
 
-    <!-- 主体内容 -->
+    <!-- 页面主体 -->
     <main class="main-container">
         {{ content }}
     </main>
@@ -173,14 +160,10 @@
     <!-- 页脚 -->
     <footer>
         <div class="footer-content">
-            
-            <!-- 第 1 列：关于 -->
             <div class="footer-col">
                 <h4>关于冰书</h4>
                 <p style="line-height: 1.8;">冰书 (BingBook.cn) 致力于为读者提供高价值的信息筛选服务，在信息过载的时代，保持冷静与深度。</p>
             </div>
-
-            <!-- 第 2 列：导航 -->
             <div class="footer-col">
                 <h4>栏目导航</h4>
                 <ul>
@@ -190,8 +173,6 @@
                     <li><a href="{{ site.baseurl }}/podcast/">播客精选</a></li>
                 </ul>
             </div>
-
-            <!-- 第 3 列：合作 -->
             <div class="footer-col">
                 <h4>联系与合作</h4>
                 <ul>
@@ -201,105 +182,72 @@
                     <li><a href="{{ site.baseurl }}/faq/">常见问题</a></li>
                 </ul>
             </div>
-
-            <!-- 第 4 列：订阅 & 二维码 (整合版) -->
+            
+            <!-- 订阅与公众号区域 -->
             <div class="footer-col" id="subscribe-section">
                 <h4>订阅更新</h4>
-                <p style="margin-bottom:10px;">每周一发送精选周刊。</p>
-                
-                <!-- 邮箱订阅 -->
+                <p>每周一发送精选周刊。</p>
                 <div class="subscribe-form">
                     <input type="email" id="subscribe-email" placeholder="您的邮箱">
                     <button id="subscribe-btn">订阅</button>
                 </div>
 
-                <!-- 分割线 -->
                 <div style="margin: 25px 0; border-top: 1px dashed #333;"></div>
 
-                <!-- 公众号二维码区域 -->
                 <div style="display: flex; gap: 15px; align-items: flex-start;">
-                    <!-- 这里引用 /img/qrcode.png -->
-                    <!-- style 里的 background: white 是为了防止二维码在黑底上看不清 -->
+                    <!-- 引用二维码 -->
                     <img src="{{ site.baseurl }}/img/qrcode.png" alt="公众号" 
                          style="width: 80px; height: 80px; border-radius: 4px; background: #fff; padding: 4px;"
-                         onerror="this.src='/img/qrcode.jpg'"> 
-                    
+                         onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BingBook'">
                     <div style="flex: 1;">
                         <h5 style="color: #fff; margin: 0 0 5px 0; font-size: 14px;">关注官方公众号</h5>
-                        <p style="margin: 0; font-size: 12px; color: #888; line-height: 1.5;">
-                            扫码获取每日深度推送与独家福利。
-                        </p>
+                        <p style="margin: 0; font-size: 12px; color: #888; line-height: 1.5;">扫码获取每日深度推送与独家福利。</p>
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="copyright">
-            &copy; {{ site.time | date: "%Y" }} 冰书BingBook.cn.
+            &copy; {{ site.time | date: "%Y" }} 冰书BingBook.cn .
         </div>
     </footer>
 
-    <!-- 功能脚本 -->
     <script>
-        // 1. 订阅功能
+        // 订阅脚本
         const subBtn = document.getElementById('subscribe-btn');
         const subInput = document.getElementById('subscribe-email');
         if(subBtn && subInput){
             subBtn.addEventListener('click', function() {
                 const email = subInput.value;
                 if (!email) { alert('请输入您的邮箱地址'); subInput.focus(); return; }
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) { alert('请输入有效的邮箱地址'); return; }
                 const subject = encodeURIComponent('申请订阅冰书');
                 const body = encodeURIComponent(`你好，我是 ${email}，希望订阅冰书每日精选。`);
                 window.location.href = `mailto:mail@bingbook.cn?subject=${subject}&body=${body}`;
             });
-            subInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') { subBtn.click(); }
-            });
+            subInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') subBtn.click(); });
         }
 
-        // 2. 搜索功能
+        // 搜索脚本
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
         let postsData = [];
-
-        // 加载 search.json
-        fetch('{{ site.baseurl }}/search.json')
-            .then(response => response.json())
-            .then(data => { postsData = data; })
-            .catch(error => console.error('Error loading search:', error));
+        fetch('{{ site.baseurl }}/search.json').then(r => r.json()).then(d => { postsData = d; });
 
         searchInput.addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase().trim();
-            searchResults.innerHTML = '';
-            searchResults.style.display = 'none';
+            searchResults.style.display = 'none'; searchResults.innerHTML = '';
             if (query.length === 0) return;
-
-            const filteredPosts = postsData.filter(post => 
-                post.title.toLowerCase().includes(query)
-            );
-            
+            const filtered = postsData.filter(p => p.title.toLowerCase().includes(query));
             searchResults.style.display = 'block';
-            
-            if (filteredPosts.length > 0) {
-                filteredPosts.forEach(post => {
-                    const link = document.createElement('a');
-                    link.href = post.url;
-                    link.className = 'search-item';
-                    link.innerHTML = `<span class="search-item-title">${post.title}</span><span class="search-item-meta">${post.date} · ${post.category}</span>`;
-                    searchResults.appendChild(link);
+            if (filtered.length > 0) {
+                filtered.forEach(p => {
+                    const a = document.createElement('a'); a.href = p.url; a.className = 'search-item';
+                    a.innerHTML = `<span class="search-item-title">${p.title}</span><span class="search-item-meta">${p.date} · ${p.category}</span>`;
+                    searchResults.appendChild(a);
                 });
-            } else {
-                searchResults.innerHTML = '<div class="no-results">没有找到相关文章</div>';
-            }
+            } else { searchResults.innerHTML = '<div class="no-results">无结果</div>'; }
         });
-
-        // 点击外部关闭搜索
         document.addEventListener('click', function(e) {
-            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-                searchResults.style.display = 'none';
-            }
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) searchResults.style.display = 'none';
         });
     </script>
 </body>
