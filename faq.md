@@ -14,7 +14,7 @@ permalink: /faq/
     <p>A: 我们网站每天更新“每日精选”栏目。邮件通讯（Newsletter）目前为每周一发送一次周刊。</p>
 
     <h3>Q: 为什么我收不到订阅邮件？</h3>
-    <p>A: 请检查您的垃圾邮件箱。建议将 <code style="background:#eee; padding:2px 4px;">mail@bingbook.cn</code> 添加到您的通讯录白名单中。</p>
+    <p>A: 请检查您的垃圾邮件箱。建议将 <code style="background:#eee; padding:2px 4px;">hknict@gmail.com</code> 添加到您的通讯录白名单中。</p>
 
     <h3>Q: 我可以转载冰书的文章吗？</h3>
     <p>A: 除特别注明的编译内容外，本站原创内容未经授权禁止转载。如需白名单开通，请联系 <a href="mailto:mail@bingbook.cn">mail@bingbook.cn</a>。</p>
