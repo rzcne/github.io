@@ -6,6 +6,7 @@ category: Depth
 author: "张思远"
 image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200"
 description: "不仅仅是叠衣服。随着多模态大模型的接入，人形机器人正在从'炫技'走向'实用'。我们离《我，机器人》的世界还有多远？"
+featured: false
 ---
 
 <div class="post-header">
