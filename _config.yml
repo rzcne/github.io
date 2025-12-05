@@ -10,5 +10,5 @@ theme: null
 plugins:
   - jekyll-paginate
 
-paginate: 8               # 每页显示4篇文章
+paginate: 8               # 每页显示8篇文章
 paginate_path: "/page:num/" # 分页生成的路径规则
