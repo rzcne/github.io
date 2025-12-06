@@ -4,7 +4,7 @@ title: "“生活压力大并非疾病”：资深全科医生警示精神健康
 date: 2025-12-06
 category: Depth
 author: "健康专栏"
-image: "https://images.unsplash.com/photo-1526958097902-603e84c53826?auto=format&fit=crop&q=80&w=1200"
+image: "https://s41.ax1x.com/2025/12/06/pZm2xzt.png"
 description: "当我们把失恋、失业或考试焦虑统统贴上'抑郁症'的标签时，我们是否正在丧失作为人类最基本的心理韧性？"
 featured: false
 ---
