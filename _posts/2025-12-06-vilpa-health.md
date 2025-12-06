@@ -4,7 +4,7 @@ title: "自然医学最新研究：每天三分钟“碎片化剧烈运动”可
 date: 2025-12-06
 category: Depth
 author: "编译组"
-image: "https://images.unsplash.com/photo-1552674605-46f5000af45d?auto=format&fit=crop&q=80&w=1200"
+image: "https://s41.ax1x.com/2025/12/06/pZmYQO0.png"
 description: "没时间去健身房？最新的 VILPA 研究显示，追赶公交车、快走上楼梯等短时间高强度活动，对心血管健康的收益超乎想象。"
 featured: false
 ---
