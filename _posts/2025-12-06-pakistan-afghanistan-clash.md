@@ -4,7 +4,7 @@ title: "杜兰线在流血：巴基斯坦与阿富汗爆发近年来最致命边
 date: 2025-12-06
 category: Global
 author: "南亚观察室"
-image: "https://images.unsplash.com/photo-1518247986961-464a4b868661?auto=format&fit=crop&q=80&w=1200"
+image: "https://s41.ax1x.com/2025/12/06/pZm2LIH.png"
 description: "托尔汉姆口岸的炮火声打破了脆弱的平静。随着塔利班与伊斯兰堡的关系降至冰点，地缘政治的裂痕正在南亚腹地扩大。"
 featured: false
 ---
