@@ -4,7 +4,7 @@ title: "动作场面堪比大片：《神秘博士》全新衍生剧《海魔之
 date: 2025-12-06
 category: Books
 author: "文化评论员"
-image: "https://images.unsplash.com/photo-1551068832-6807cb934d40?auto=format&fit=crop&q=80&w=1200"
+image: "https://s41.ax1x.com/2025/12/06/pZm2YqS.png"
 description: "不仅是科幻迷的狂欢。BBC 与 Disney+ 联手打造的这部深海谍战剧，凭借电影级的视觉特效，重新定义了英剧的天花板。"
 featured: false
 ---
