@@ -6,7 +6,7 @@ category: Global
 author: "香港特约观察员"
 image: "https://images.unsplash.com/photo-1558273618-2e0081d09e30?auto=format&fit=crop&q=80&w=1200"
 description: "在这个原本旨在确立新一届立法会版图的周日，一场夺走数十条生命的旧楼大火，让整座城市的政治议程让位于沉重的哀悼与反思。"
-featured: fales
+featured: false
 ---
 
 <div class="post-header">
