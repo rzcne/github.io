@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 
 // 1. 配置发件箱 (使用 GitHub Secrets 注入的变量)
 const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",   // 明确指定邮件的 SMTP 服务器
+    host: "smtp.qq.com",   // 明确指定邮件的 SMTP 服务器
     port: 465,             // 明确指定 SSL 端口
     secure: true,          // 开启安全连接
     auth: {
