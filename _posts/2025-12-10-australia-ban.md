@@ -4,7 +4,7 @@ title: "静默的校园：社交媒体禁令生效一周后，澳大利亚青少
 date: 2025-12-10
 category: Depth
 author: "悉尼特约记者"
-image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200"
+image: "https://s41.ax1x.com/2025/12/10/pZucAWn.png"
 description: "没有 TikTok 的算法投喂，没有 Instagram 的点赞焦虑。堪培拉发起的这场全球最大规模社会实验，正在重塑一代人的社交神经。"
 featured: false
 ---
