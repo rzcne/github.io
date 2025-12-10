@@ -4,7 +4,7 @@ title: "两个美国的平行时空：华尔街的狂欢与餐桌上的叹息"
 date: 2025-12-10
 category: Global
 author: "北美财经观察"
-image: "https://images.unsplash.com/photo-1611974765270-ca1258634369?auto=format&fit=crop&q=80&w=1200"
+image: "https://s41.ax1x.com/2025/12/10/pZucEzq.png"
 description: "特朗普总统高举标普500创新高的图表，宣称这是'史上最好的经济'。但在通胀余温未消的中西部小镇，选民们感受到的却是另一种寒意。"
 featured: true
 ---
