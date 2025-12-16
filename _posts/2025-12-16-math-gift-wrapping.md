@@ -4,7 +4,7 @@ title: "几何学的浪漫：数学家教你如何用最少的纸包装最完美
 date: 2025-12-16
 category: Culture
 author: "生活黑客"
-image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&q=80&w=1200"
+image: "https://s41.ax1x.com/2025/12/16/pZQ5ShV.png"
 description: "在这个消费主义的节日季，数学不仅能帮你省下昂贵的包装纸，还能让你的礼物在圣诞树下成为最懂'拓扑学'的那一个。"
 featured: false
 ---
