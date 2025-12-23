@@ -4,7 +4,7 @@ title: "Vol.56 对话大卫·辛克莱：衰老是一种可以被治愈的疾病
 date: 2025-12-05
 category: Podcast
 author: "编译组"
-image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1200"
+image: "https://img.bingbook.cn/photo-1532187863486-abf9dbad1b69.jpeg"
 description: "最新的表观遗传学研究表明，衰老更像是软件系统的'代码乱码'，而非硬件的必然磨损。只要重置时钟，青春能否回溯？"
 featured: false
 ---
