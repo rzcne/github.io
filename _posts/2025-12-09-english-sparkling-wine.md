@@ -4,7 +4,7 @@ title: "抱歉了，法国：为何英国正在夺取“世界最佳起泡酒”
 date: 2025-12-09
 category: Culture
 author: "品酒师笔记"
-image: "https://s41.ax1x.com/2025/12/09/pZnv6DU.png"
+image: "https://img.bingbook.cm/fgj.png"
 description: "全球变暖改变了葡萄种植的版图。凭借与香槟区相似的白垩土壤和日益变暖的气候，萨塞克斯郡正在成为新的气泡酒圣地。"
 featured: false
 ---
