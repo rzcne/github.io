@@ -4,7 +4,7 @@ title: "圣诞倦怠指南：当节日变成了“义务”，如何优雅地说
 date: 2025-12-09
 category: Books
 author: "生活方式专栏"
-image: "https://img.bingbook.cm/sdl.png"
+image: "https://img.bingbook.cn/sdl.png"
 description: "社交日历的爆炸、礼物的财务压力、强制性的家庭聚会……心理学家建议，今年或许是你练习“错过之乐”(JOMO) 的最佳时机。"
 featured: false
 ---
