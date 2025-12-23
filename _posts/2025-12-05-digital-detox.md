@@ -4,7 +4,7 @@ title: "在多巴胺的暴雨中撑伞：重读《娱乐至死》"
 date: 2025-12-05
 category: Books
 author: "李木子"
-image: "https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?auto=format&fit=crop&q=80&w=1200"
+image: "https://img.bingbook.cn/photo-1491841550275-ad7854e35ca6.jpeg"
 description: "当 15 秒短视频成为获取信息的标准单位，尼尔·波兹曼在四十年前的预言显得震耳欲聋。我们是否正在爱上压迫我们的技术？"
 featured: false
 ---
