@@ -4,7 +4,7 @@ title: "最寒冷的冬至：俄军混合空袭重创乌克兰电网，数百万
 date: 2025-12-23
 category: Global
 author: "基辅前线观察"
-image: "http://49.235.83.140/els.jpg"
+image: "https://img.bingbook.cn/els.png"
 description: "在这个北半球白昼最短的日子里，莫斯科发动了新一轮针对能源基础设施的饱和式打击。寒冷，再次成为了战争的武器。"
 featured: true
 ---
