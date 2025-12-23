@@ -4,7 +4,7 @@ title: "泪水与海浪：邦迪海滩的无声纪念"
 date: 2025-12-16
 category: Global
 author: "悉尼特约记者"
-image: "https://s41.ax1x.com/2025/12/16/pZQ4b6g.png"
+image: "https://img.bingbook.cn/ht.png"
 description: "在这个通常充满了冲浪板和欢笑声的著名海滩，今天只有白色的鲜花和沉默的人群。悉尼在悲伤中展示了社区的韧性。"
 featured: true
 ---
