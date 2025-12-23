@@ -4,7 +4,7 @@ title: "历史性转折：德国联邦议院投票通过恢复“新志愿兵役
 date: 2025-12-06
 category: Global
 author: "柏林特约观察员"
-image: "https://s41.ax1x.com/2025/12/06/pZmYMyq.png"
+image: "https://img.bingbook.cn/pZmYMyq.png"
 description: "在废除义务兵役制14年后，面对欧洲东翼的安全压力，柏林迈出了重塑国防力量的关键一步。这一决定对北约意味着什么？"
 featured: true
 ---
