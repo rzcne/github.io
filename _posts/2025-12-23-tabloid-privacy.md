@@ -4,7 +4,7 @@ title: "当我的受害报告成为头版谈资：一场关于媒体窥私欲的
 date: 2025-12-23
 category: Depth
 author: "匿名撰稿人"
-image: "http://49.235.83.140/xqxb.jpg"
+image: "https://img.bingbook.cn/xqxb.png"
 description: "我以为报警是寻求正义的第一步，直到我在超市收银台的小报封面上，看到了自己最难以启齿的伤痛被明码标价。"
 featured: false
 ---
