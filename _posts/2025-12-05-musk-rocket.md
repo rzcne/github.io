@@ -4,7 +4,7 @@ title: "SpaceX 星舰第四次试飞成功：人类迈向火星的一大步"
 date: 2025-12-05
 category: "Technology"
 author: "冰书科技组"
-image: "https://images.unsplash.com/photo-1517976487492-5750f3195933"
+image: "https://img.bingbook.cn/photo-1517976487492-5750f3195933.jpeg"
 description: "经过数月的等待，SpaceX 最新的星舰在德克萨斯州博卡奇卡发射场成功点火升空，并首次完成了助推器水上软着陆。"
 ---
 
