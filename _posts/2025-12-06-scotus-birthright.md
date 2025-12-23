@@ -4,7 +4,7 @@ title: "震动宪法基石：美国最高法院同意审理挑战“出生公民
 date: 2025-12-06
 category: Global
 author: "华盛顿特派员"
-image: "https://s41.ax1x.com/2025/12/06/pZmYmWj.png"
+image: "https://img.bingbook.cn/pZmYmWj.png"
 description: "第十四修正案面临百年来最大危机。如果'落地国籍'被推翻，数百万人的身份将被重写，美国移民社会的底层逻辑或将彻底崩塌。"
 featured: true
 ---
