@@ -4,7 +4,7 @@ title: "核聚变商业化的前夜：硅谷资本与能源新秩序"
 date: 2025-12-05
 category: Global
 author: "冰书研究院"
-image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200"
+image: "https://img.bingbook.cn/photo-1451187580459-43490279c0fa.jpeg"
 description: "Helion Energy 宣布并网发电倒计时。当无限清洁能源成为可能，地缘政治、石油美元与全球制造业版图将如何重构？"
 featured: true
 ---
