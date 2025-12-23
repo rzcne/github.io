@@ -4,7 +4,7 @@ title: "实体书店的复兴：一种对抗算法推荐的城市生活方式"
 date: 2025-12-02
 category: "Culture"
 author: "李木子"
-image: "https://s41.ax1x.com/2025/12/17/pZlMngA.png"
+image: "https://img.bingbook.cn/pZlMngA.png"
 description: "数据表明，在电子阅读器销量触顶的今天，注重策展和空间体验的独立书店正在一线城市悄然回暖。"
 ---
 <div class="post-header"><h1>{{ page.title }}</h1></div>
