@@ -4,7 +4,7 @@ title: "谈判桌与巡航导弹：美乌对话取得突破，莫斯科以大规
 date: 2025-12-06
 category: Global
 author: "华盛顿特派员"
-image: "https://s41.ax1x.com/2025/12/06/pZm2fi9.png"
+image: "https://img.bingbook.cn/pZm2fi9.png"
 description: "白宫官员透露双方在'安全保障条款'上达成关键共识。然而，基辅的防空警报提醒着世界：和平的代价依然昂贵。"
 featured: true
 ---
