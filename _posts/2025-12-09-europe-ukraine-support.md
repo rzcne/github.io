@@ -4,7 +4,7 @@ title: "当华盛顿犹豫时：欧洲盟国为何称现在是援乌的“决定
 date: 2025-12-09
 category: Global
 author: "布鲁塞尔观察"
-image: "https://img.bingbook.cm/omyw.png"
+image: "https://img.bingbook.cn/omyw.png"
 description: "面对大西洋彼岸的政治不确定性，英法德三国领导人罕见达成一致：欧洲必须接过防御盾牌，不仅为了基辅，更为了自己。"
 featured: true
 ---
