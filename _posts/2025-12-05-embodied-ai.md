@@ -4,7 +4,7 @@ title: "具身智能的 iPhone 时刻：当人形机器人真正走进家庭"
 date: 2025-12-05
 category: Depth
 author: "张思远"
-image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200"
+image: "https://img.bingbook.cn/photo-1485827404703-89b55fcc595e.jpeg"
 description: "不仅仅是叠衣服。随着多模态大模型的接入，人形机器人正在从'炫技'走向'实用'。我们离《我，机器人》的世界还有多远？"
 featured: false
 ---
