@@ -4,7 +4,7 @@ title: "灰色的投票日：致命大火阴影下的香港立法会选举"
 date: 2025-12-08
 category: Global
 author: "香港特约观察员"
-image: "https://img.bingbook.cm/xgdh.png"
+image: "https://img.bingbook.cn/xgdh.png"
 description: "在这个原本旨在确立新一届立法会版图的周日，一场夺走数十条生命的旧楼大火，让整座城市的政治议程让位于沉重的哀悼与反思。"
 featured: false
 ---
