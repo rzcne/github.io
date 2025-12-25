@@ -2,7 +2,7 @@
 layout: default
 title: "Noche Buena：一种只能在圣诞节买到的墨西哥啤酒，如何成为了节日的液体图腾？"
 date: 2025-12-25
-category: Culture
+category: Books
 author: "美食地理"
 image: "https://img.bingbook.cn/mxgpj36.png"
 description: "它不仅仅是一款酒精饮料，更是墨西哥冬季的象征。当这只带有红色一品红标志的深色瓶子出现在货架上，人们知道：圣诞来了。"
