@@ -2,7 +2,7 @@
 layout: default
 title: "再见，NewJeans：一场两败俱伤的商业战争终结了 K-Pop 的神话"
 date: 2025-12-30
-category: Culture
+category: Depth
 author: "首尔娱乐观察"
 image: "https://img.bingbook.cn/hg8675.png"
 description: "在经历了长达一年的法律诉讼和舆论拉锯战后，这个曾被视为“BTS接班人”的顶流女团宣布解散。这不仅是一个组合的终结，更是韩国偶像工业体系裂痕的爆发。"
