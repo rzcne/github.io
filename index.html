@@ -40,7 +40,7 @@ title: 首页
     .page-link.disabled { color: #cbd5e0; border-color: #edf2f7; pointer-events: none; }
 </style>
 
-<!-- 轮播图逻辑 -->
+<!-- 轮播图逻辑：筛选 Featured 文章 -->
 {% assign featured_posts = site.posts | where: "featured", "true" %}
 {% if featured_posts.size == 0 %}
     {% assign featured_posts = site.posts | slice: 0, 3 %}
@@ -104,21 +104,22 @@ title: 首页
     {% endfor %}
 </div>
 
-<!-- 智能分页逻辑 -->
+<!-- 分页 -->
 {% if paginator.total_pages > 1 %}
 <div class="pagination-wrapper">
     
     <!-- 上一页 -->
     {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | relative_url }}" class="page-link">&laquo; 上一页</a>
+        <a href="{{ paginator.previous_page_path | relative_url }}" class="page-link">上一页</a>
     {% else %}
-        <span class="page-link disabled">&laquo; 上一页</span>
+        <span class="page-link disabled">上一页</span>
     {% endif %}
 
-    <!-- 页码循环：只显示第1页、最后1页、当前页及其前后1页 -->
+    <!-- 页码循环 -->
     {% for page in (1..paginator.total_pages) %}
-        {% if page == 1 or page == paginator.total_pages or page == paginator.page or page == paginator.page | minus: 1 or page == paginator.page | plus: 1 %}
-            
+        
+        <!-- 逻辑1: 总是显示 第1页、最后1页、当前页 -->
+        {% if page == 1 or page == paginator.total_pages or page == paginator.page %}
             {% if page == paginator.page %}
                 <span class="page-link active">{{ page }}</span>
             {% elsif page == 1 %}
@@ -127,17 +128,23 @@ title: 首页
                 <a href="{{ site.baseurl }}/page{{ page }}/" class="page-link">{{ page }}</a>
             {% endif %}
         
-        <!-- 用省略号代替中间的页码 -->
-        {% elsif page == paginator.page | minus: 2 or page == paginator.page | plus: 2 %}
+        <!-- 逻辑2: 左边的省略号 (仅当当前页大于2时，在第2页的位置显示) -->
+        {% elsif page == 2 and paginator.page > 2 %}
             <span class="page-link disabled" style="border:none; background: transparent;">...</span>
+        
+        <!-- 3. 右边的省略号 (仅当当前页小于倒数第2页时，在当前页+1的位置显示) -->
+        {% elsif page == paginator.page | plus: 1 and paginator.page < paginator.total_pages | minus: 1 %}
+            <span class="page-link disabled" style="border:none; background: transparent;">...</span>
+            
         {% endif %}
+        
     {% endfor %}
 
     <!-- 下一页 -->
     {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | relative_url }}" class="page-link">下一页 &raquo;</a>
+        <a href="{{ paginator.next_page_path | relative_url }}" class="page-link">下一页</a>
     {% else %}
-        <span class="page-link disabled">下一页 &raquo;</span>
+        <span class="page-link disabled">下一页</span>
     {% endif %}
 
 </div>
