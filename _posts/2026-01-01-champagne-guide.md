@@ -2,7 +2,7 @@
 layout: default
 title: "饮用香槟的艺术：在这个新年，别让错误的喝法毁了那瓶好酒"
 date: 2026-01-01
-category: Culture
+category: Books
 author: "品酒师笔记"
 image: "https://img.bingbook.cn/2026-1-1-xb.png"
 description: "从杯型的选择到开瓶的声响，关于香槟的误区比你想象的要多。这是一份为 2026 年第一杯酒准备的专业指南。"
