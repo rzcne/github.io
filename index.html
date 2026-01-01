@@ -40,7 +40,7 @@ title: 首页
     .page-link.disabled { color: #cbd5e0; border-color: #edf2f7; pointer-events: none; }
 </style>
 
-<!-- 轮播图逻辑：筛选 Featured 文章 -->
+<!-- 轮播图逻辑 -->
 {% assign featured_posts = site.posts | where: "featured", "true" %}
 {% if featured_posts.size == 0 %}
     {% assign featured_posts = site.posts | slice: 0, 3 %}
@@ -104,30 +104,42 @@ title: 首页
     {% endfor %}
 </div>
 
-<!-- 分页 -->
+<!-- 智能分页逻辑 -->
 {% if paginator.total_pages > 1 %}
 <div class="pagination-wrapper">
+    
+    <!-- 上一页 -->
     {% if paginator.previous_page %}
         <a href="{{ paginator.previous_page_path | relative_url }}" class="page-link">&laquo; 上一页</a>
     {% else %}
         <span class="page-link disabled">&laquo; 上一页</span>
     {% endif %}
 
+    <!-- 页码循环：只显示第1页、最后1页、当前页及其前后1页 -->
     {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-            <span class="page-link active">{{ page }}</span>
-        {% elsif page == 1 %}
-            <a href="{{ site.baseurl }}/" class="page-link">{{ page }}</a>
-        {% else %}
-            <a href="{{ site.baseurl }}/page{{ page }}/" class="page-link">{{ page }}</a>
+        {% if page == 1 or page == paginator.total_pages or page == paginator.page or page == paginator.page | minus: 1 or page == paginator.page | plus: 1 %}
+            
+            {% if page == paginator.page %}
+                <span class="page-link active">{{ page }}</span>
+            {% elsif page == 1 %}
+                <a href="{{ site.baseurl }}/" class="page-link">{{ page }}</a>
+            {% else %}
+                <a href="{{ site.baseurl }}/page{{ page }}/" class="page-link">{{ page }}</a>
+            {% endif %}
+        
+        <!-- 用省略号代替中间的页码 -->
+        {% elsif page == paginator.page | minus: 2 or page == paginator.page | plus: 2 %}
+            <span class="page-link disabled" style="border:none; background: transparent;">...</span>
         {% endif %}
     {% endfor %}
 
+    <!-- 下一页 -->
     {% if paginator.next_page %}
         <a href="{{ paginator.next_page_path | relative_url }}" class="page-link">下一页 &raquo;</a>
     {% else %}
         <span class="page-link disabled">下一页 &raquo;</span>
     {% endif %}
+
 </div>
 {% endif %}
 
