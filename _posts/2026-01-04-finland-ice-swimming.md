@@ -2,7 +2,7 @@
 layout: default
 title: "跳进冰窟窿的快感：铁人三项选手带你探索芬兰最佳冰泳胜地"
 date: 2026-01-04
-category: Culture
+category: Books
 author: "北欧生活指南"
 image: "https://img.bingbook.cn/2026-1-fl.png"
 description: "对于芬兰人来说，在桑拿房蒸到 80 度后跳进 0 度的波罗的海，不是自虐，而是最高级的多巴胺疗法。"
