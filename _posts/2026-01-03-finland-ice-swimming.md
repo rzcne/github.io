@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "跳进冰窟窿的快感：铁人三项选手带你探索芬兰最佳冰泳胜地"
-date: 2026-01-04
+date: 2026-01-03
 category: Books
 author: "北欧生活指南"
 image: "https://img.bingbook.cn/2026-1-fl.png"
