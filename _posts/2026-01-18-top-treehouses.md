@@ -2,7 +2,7 @@
 layout: default
 title: "逃离地心引力：全球十大最壮观的树屋，找回你童年的避难所"
 date: 2026-01-18
-category: Culture
+category: Depth
 author: "全球旅居指南"
 image: "https://img.bingbook.cn/2026-1-18-sw.png"
 description: "从瑞典的隐形镜魔方到巴厘岛的竹制宫殿。这些悬浮在林冠之间的建筑奇迹，重新定义了奢华与自然的边界。"
