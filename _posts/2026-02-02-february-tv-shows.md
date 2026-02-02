@@ -2,7 +2,7 @@
 layout: default
 title: "二月剧单：除了《最后生还者3》，这 10 部剧将拯救你的剧荒"
 date: 2026-02-02
-category: Culture
+category: Books
 author: "流媒体指南"
 image: "https://img.bingbook.cn/2026-2-2-dy.png"
 description: "流媒体大战进入白热化阶段。HBO 的末世美学、Apple TV+ 的职场惊悚以及 Netflix 的硬核科幻，构成了这个月的必看清单。"
