@@ -2,7 +2,7 @@
 layout: default
 title: "把天空“填满”：马斯克申请发射 100 万颗卫星，引发天文学界恐慌"
 date: 2026-02-02
-category: Technology
+category: Depth
 author: "硅谷科技线"
 image: "https://img.bingbook.cn/2026-2-2-msk.png"
 description: "这不再是简单的星链（Starlink），这是一个包裹地球的“数字外壳”。近地轨道的私有化竞赛，是否正在失控？"
