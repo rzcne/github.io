@@ -2,9 +2,9 @@
 layout: default
 title: "寻找共鸣者：在喧嚣的算法时代，投资“深度”的商业价值"
 date: 2026-02-02
-category: Business
+category: Depth
 author: "冰书商务部"
-image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
+image: "https://img.bingbook.cn/bssy.png"
 description: "我们拒绝各种形式的各种形式的侵入式广告。我们寻找的是那些同样相信时间、品质与思考力量的品牌伙伴。"
 featured: false
 ---
@@ -52,4 +52,3 @@ featured: false
         <span style="font-size: 12px; color: #666;">（请在邮件中简述您的品牌理念，我们会于 24 小时内回复）</span>
     </p>
 </div>
-```
