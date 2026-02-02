@@ -1,4 +1,3 @@
-markdown
 ---
 layout: default
 title: "威斯敏斯特的余震：曼德尔森勋爵因爱泼斯坦丑闻辞去工党职务"
