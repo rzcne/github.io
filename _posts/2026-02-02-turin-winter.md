@@ -2,7 +2,7 @@
 layout: default
 title: "避开罗马的雨和威尼斯的水：为什么冬天的都灵（Turin）才是意大利的灵魂？"
 date: 2026-02-02
-category: Culture
+category: Books
 author: "地中海生活家"
 image: "https://img.bingbook.cn/2026-2-2-ydl.png"
 description: "没有游客的喧嚣，只有阿尔卑斯山的雪顶、巴洛克回廊下的热巧克力，以及一种属于皇家的优雅颓废。"
