@@ -25,15 +25,12 @@ const mailOptions = {
     html: `
         <div style="font-family: sans-serif; padding: 20px;">
             <h2>📅 冰书精选周刊</h2>
-            </hr>
-            <p>感谢订阅，因网站合规要求，我们已经对网站进行改版。 </p>
-</hr>
-<p>新版网站地址为: bingbook.cn </p>
-</hr>
-<p>请访问官网阅读完整内容，我们即日起不再提供邮件订阅。可点击链接 https://bingbook.cn  使用微信公众号进行关注订阅，非常感谢您对我们的支持。 </p>
-</hr>
-
-<p>不想收到邮件？请回复退订。 </p>
+            <p>感谢订阅，这是周刊的精选文章：</p>
+            <hr>
+            <h3><a href="https://bingbook.cn">1. 点击查看精选周刊的4篇文章</a></h3>
+            <p>请访问官网阅读完整内容。</p>
+            <hr>
+            <p style="font-size: 12px; color: #888;">不想收到邮件？请回复退订。</p>
 </div>
     `
 };
