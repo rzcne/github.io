@@ -25,6 +25,7 @@ const mailOptions = {
     html: `
         <div style="font-family: sans-serif; padding: 20px;">
             <h2>📅 冰书精选周刊</h2>
+            </hr>
             <p>感谢订阅，因网站合规要求，我们已经对网站进行改版。 </p>
 </hr>
 <p>新版网站地址为: bingbook.cn </p>
